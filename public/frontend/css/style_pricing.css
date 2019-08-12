@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,500,400,300,800);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400);
+
+
+a{
+    color: inherit;
+}
+a:hover,a:focus{
+    text-decoration: none !important;
+    /*color: inherit !important;*/
+}
+ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.pricing-table-container{
+    font-family: "Open Sans";
+
+    padding:50px 0px;
+}
+.description{
+	padding:15px 0px;
+}
+.description a{
+	padding:10px;
+	font-size:13px;
+	display:block;
+	font-weight:bold;
+	border-bottom:1px solid #DDD;
+}
+.description a.active{
+	background-color:#FFF;
+	padding-left:25px;
+}
+
+.pricing-table-body {
+    font-family: "Open Sans" !important;
+}

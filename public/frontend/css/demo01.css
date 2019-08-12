@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* DEMO 01 */
+.pricing-table-1{
+	background-color:#FFF;
+	margin:15px auto;
+	box-shadow:0px 0px 25px rgba(0,0,0,0.1);
+	max-width:300px;
+	transition:all ease-in-out 0.25s;
+	
+}
+.pricing-table-1:hover{
+	transform:scale(1.1,1.1);
+	cursor:pointer;
+}
+
+.pricing-table-1 .pricing-table-header{
+	padding:30px 0px 10px 0px;
+	position:relative;
+	z-index:4;
+}
+.pricing-table-1 .pricing-table-header .fa{
+	font-size:20px;
+	margin-top:30px;
+}
+.pricing-table-1.basic{
+	background-color:#ffb200;
+	color:#FFF;
+}
+.pricing-table-1.premium{
+	background-color:#59a801;
+	color:#FFF;
+}
+.pricing-table-1.business{
+	background-color:#0297b5;
+	color:#FFF;
+}
+
+.pricing-table-1 .pricing-table-header::before{
+	content:"";
+	position:absolute;
+	left:25px;
+	right:25px;
+	height:50px;
+	background-color:rgba(255,255,255,0.1);
+	bottom:-5px;
+	z-index:-1;
+	border-radius:10px;
+}
+
+
+.pricing-table-1 .pricing-table-body{
+	padding:50px 20px 20px 20px;
+	background-color:#FFF;
+}
+
+
+.pricing-table-1 .pricing-table-ul li{
+	color:rgba(0,0,0,0.7);
+	padding:7px 10px 7px 40px;
+	position:relative;
+}
+
+.pricing-table-1 .pricing-table-ul li .fa{
+	 padding:5px;
+	 margin-right:10px;
+	 border-radius:50%;
+	 width:24px;
+	 height:24px;
+	 text-align:center;
+	 opacity:0.8;
+	 position:absolute;
+	 left:10px;
+}
+
+.pricing-table-1.basic .pricing-table-ul li .fa{
+	background-color:#ffb200;
+	color:#FFF;
+}
+.pricing-table-1.premium .pricing-table-ul li .fa{
+	background-color:#59a801;
+	color:#FFF;
+}
+.pricing-table-1.business .pricing-table-ul li .fa{
+	background-color:#0297b5;
+	color:#FFF;
+}
+.pricing-table-1 .not-avail{
+	opacity:0.5;
+}
+.pricing-table-1 .not-avail .fa{
+	background-color:rgba(0,0,0,0.5) !important;
+}
+
+
+.pricing-table-1 .price{
+	color:#4a4a4a;
+	font-size:40px;
+	font-weight:bold;
+	text-align:center;
+	padding:10px 0px;
+}
+.pricing-table-1 .price small{
+	font-size:13px;
+	display:block;
+	line-height:0px;
+}
+.pricing-table-1 .view-more{
+	text-align:center;
+	margin-top:15px;
+	background-color:#DDD;
+	width:100%;
+}
+.pricing-table-1.basic .view-more{
+	background-color:#ffb200;
+}
+.pricing-table-1.premium .view-more{
+	background-color:#59a801;
+}
+.pricing-table-1.business .view-more{
+	background-color:#0297b5;
+}
