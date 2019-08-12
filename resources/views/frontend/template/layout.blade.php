@@ -72,7 +72,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- <a class="navbar-brand" href="#"><img src="img/logo.png" data-active-url="img/logo-active.png" alt=""></a> -->
-                <a class="navbar-brand p-l-50" href="#intro"><h1 class="">Dream Travel</h1></a>
+                <a class="navbar-brand p-l-50" href="{{ url('/') }}"><h1 class="">Dream Travel</h1></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
