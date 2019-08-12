@@ -20,7 +20,7 @@ class Holidays extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'booking', 'holiday_id', 'user_id');
+        return $this->belongsToMany(BackpackUser::class, 'booking', 'holiday_id', 'user_id');
     }
 
     public function books()

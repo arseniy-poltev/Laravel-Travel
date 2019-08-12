@@ -100,14 +100,14 @@
                                     <td class="wifi">{{ $holiday->wifi == 1 ? 'Yes' : 'No' }}</td>
                                     <td class="car_rental">{{ $holiday->car_rental == 1 ? 'Yes' : 'No' }}</td>
                                     <td>
-                                        @if($holiday->users()->where('user_id', Auth::user()->id)->exists())
+                                        @if($holiday->users()->where('user_id', backpack_user()->id)->exists())
                                             <span class="badge bg-primary">Yes</span>
                                         @else
                                             <span class="badge bg-info">No</span>
                                         @endif
                                     </td>
                                     <td>
-                                        @if(!$holiday->users()->where('user_id', Auth::user()->id)->exists())
+                                        @if(!$holiday->users()->where('user_id', backpack_user()->id)->exists())
                                         <a class="btn btn-sm btn-success btn_book">Book</a>
                                         @endif
                                     </td>

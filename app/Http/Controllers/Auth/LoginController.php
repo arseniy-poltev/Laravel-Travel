@@ -17,15 +17,22 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
+//    public function __construct()
+//    {
+//        $guard = backpack_guard_name();
+//        $this->middleware("guest:$guard", ['except' => 'logout']);
+//    }
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers {
+        logout as defaultLogout;
+    }
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -34,6 +41,18 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        $guard = backpack_guard_name();
+
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function guard()
+    {
+        return backpack_auth();
+    }
+
+    public function username()
+    {
+        return backpack_authentication_column();
     }
 }

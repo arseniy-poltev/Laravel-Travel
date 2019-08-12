@@ -37,4 +37,13 @@ class BackpackUser extends User
     {
         return $this->email;
     }
+
+    public function holidays()
+    {
+        return $this->belongsToMany(Holidays::class, 'booking', 'user_id', 'holiday_id');
+    }
+
+    public function booking() {
+        return $this->hasMany(Booking::class);
+    }
 }

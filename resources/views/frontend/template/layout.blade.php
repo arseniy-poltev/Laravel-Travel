@@ -40,12 +40,12 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right main-nav">
                     <!-- <li class="home-menu"><a href="#intro" title="Inicio"><i class="fa fa-home" aria-hidden="true"></i></a></li> -->
-                    @guest
+                    @if(!backpack_auth()->check())
                     <li><a href="{{ route('login') }}">Login</a></li>
                     <li><a href="{{ route('register') }}">Register</a></li>
                     @else
                         <li><a href="{{ url('booking') }}">My Booking</a></li>
-                        <li><a onclick="event.preventDefault();
+                        <li><a href="#" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}</a></li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -77,12 +77,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right main-nav">
-                    @guest
+                    @if(!backpack_auth()->check())
                         <li><a href="{{ route('login') }}" class="btn btn-green">Login</a></li>
                         <li><a href="{{ route('register') }}" class="btn btn-green">Register</a></li>
                     @else
                         <li><a href="{{ url('booking') }}" class="btn btn-green">My Booking</a></li>
-                        <li><a class="btn btn-green" onclick="event.preventDefault();
+                        <li><a href="#" class="btn btn-green" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout</a></li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

@@ -76,7 +76,7 @@ class HolidayController extends Controller
         $id = $request->id;
 
         $book = new Booking;
-        $book->user_id = Auth::user()->id;
+        $book->user_id = backpack_user()->id;
         $book->holiday_id = $id;
         $book->start_date = Carbon::parse($start_date)->format('Y-m-d');;
         $book->end_date = Carbon::parse($end_date)->format('Y-m-d');
@@ -86,7 +86,7 @@ class HolidayController extends Controller
 
     public function getMybooking(Request $request)
     {
-        $booking_list = Auth::user()->booking;
+        $booking_list = backpack_user()->booking;
 
         return view('frontend.my_booking', compact('booking_list'));
     }
@@ -108,7 +108,7 @@ class HolidayController extends Controller
         $end_date = trim(explode(' - ', $request->holiday_date)[1]);
 
         $book = Booking::find($id);
-        $book->user_id = Auth::user()->id;
+        $book->user_id = backpack_user()->id;
         $book->holiday_id = $id;
         $book->start_date = Carbon::parse($start_date)->format('Y-m-d');;
         $book->end_date = Carbon::parse($end_date)->format('Y-m-d');

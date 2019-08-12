@@ -17,14 +17,19 @@ class RoleMiddleware
      */
     public function handle($request, Closure $next, $role)
     {
-
-        dd($request->user());
         $roles = is_array($role)
             ? $role
             : explode('|', $role);
 
-        if (!backpack_auth()->check() || !in_array(backpack_user()->hasAllRoles(Role::all()), $roles)) {
-            abort(404);
+
+        if (!backpack_auth()->check()) {
+            return redirect()->to('login');
+        } else {
+            foreach ($roles as $role_item) {
+                if (!backpack_user()->hasRole($role_item)) {
+                    abort(404);
+                }
+            }
         }
 
         return $next($request);

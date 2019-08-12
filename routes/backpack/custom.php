@@ -2,21 +2,22 @@
 
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),
-    'middleware' => ['web', config('backpack.base.middleware_key', 'admin')],
+    'middleware' => ['web', config('backpack.base.middleware_key', 'admin'), 'role:admin'],
 ], function () { // custom admin routes
     Route::group([
-//        'middleware' => ['role:admin'],
         'namespace' => 'App\Http\Controllers\Admin',
+        'middleware' => ['web', 'role:admin'],
     ], function () {
-//        CRUD::resource('holidays', 'HolidayCrudController');
+        CRUD::resource('holidays', 'HolidayCrudController');
+        CRUD::resource('locations', 'LocationCrudController');
+        CRUD::resource('bookings', 'BookingCrudController');
     });
 });
 
 
 
-
 Route::group([
-    'middleware' => ['web', 'auth', 'role:user'],
+    'middleware' => ['web', 'role:user'],
     'namespace' => 'App\Http\Controllers\User',
 ], function () {
     //CRUD::resource('holidays', 'Admin\HolidayCrudController');
