@@ -1,132 +1,128 @@
 @extends('frontend.template.layout')
 
 @section('content')
-    @include('frontend.search')
+@include('frontend.search')
 @endsection
 
 
 @section('style')
-    <link rel="stylesheet" type="text/css" href="{{ asset('plugin/select2/css/select2.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('plugin/icheck/skins/all.css') }}">
-    <link href="{{ asset('plugin/checkbox/build.less.css') }}" rel="stylesheet">
-    <style>
-        .checkbox label::after {
-            font-size: 15px;
-        }
-        .checkbox label::before {
-            width: 23px;
-            height: 23px;
-        }
+<link rel="stylesheet" type="text/css" href="{{ asset('plugin/select2/css/select2.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('plugin/icheck/skins/all.css') }}">
+<link href="{{ asset('plugin/checkbox/build.less.css') }}" rel="stylesheet">
+<style>
+    .checkbox label::after {
+        font-size: 15px;
+    }
 
-        .checkbox {
-            padding-top: 23px !important;
-        }
+    .checkbox label::before {
+        width: 23px;
+        height: 23px;
+    }
 
-        .search_location {
-            padding-top: 23px !important;
-        }
+    .checkbox {
+        padding-top: 23px !important;
+    }
 
-        .select2-container .select2-selection--single {
-            height: 38px !important;
-        }
+    .search_location {
+        padding-top: 23px !important;
+    }
 
-        .select2-container--default .select2-selection--single .select2-selection__rendered {
-            line-height: 38px !important;
-        }
+    .select2-container .select2-selection--single {
+        height: 38px !important;
+    }
 
-        .select2-container--default .select2-selection--single .select2-selection__arrow {
-            top: 4px !important;
-        }
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 38px !important;
+    }
 
-        .popup-form .form-control {
-            margin: 0;
-            padding: 6px 10px;
-            color: #444;
-            border-color: #c1c1c1;
-            font-size: 16px;
-        }
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        top: 4px !important;
+    }
 
-        .btn_search_holiday {
-            margin-top: 20px !important;
-        }
+    .popup-form .form-control {
+        margin: 0;
+        padding: 6px 10px;
+        color: #444;
+        border-color: #c1c1c1;
+        font-size: 16px;
+    }
 
-    </style>
+    .btn_search_holiday {
+        margin-top: 20px !important;
+    }
+</style>
 
-    <style>
-        .bg-primary {
-            background: #00c0ef;
-        }
+<style>
+    .bg-primary {
+        background: #00c0ef;
+    }
 
-        .bg-success {
-            background: #00a65a;
-        }
+    .bg-success {
+        background: #00a65a;
+    }
 
-        .bg-danger {
-            background: #d9534f;
-        }
+    .bg-danger {
+        background: #d9534f;
+    }
 
-        .checkbox label::after {
-            font-size: 15px;
-        }
+    .checkbox label::after {
+        font-size: 15px;
+    }
 
-        .checkbox label::before {
-            width: 23px;
-            height: 23px;
-        }
+    .checkbox label::before {
+        width: 23px;
+        height: 23px;
+    }
 
-        .checkbox {
-            padding-top: 23px !important;
-        }
+    .checkbox {
+        padding-top: 23px !important;
+    }
 
-        .search_location {
-            padding-top: 23px !important;
-        }
+    .search_location {
+        padding-top: 23px !important;
+    }
 
-        .select2-container .select2-selection--single {
-            height: 38px !important;
-        }
+    .select2-container .select2-selection--single {
+        height: 38px !important;
+    }
 
-        .select2-container--default .select2-selection--single .select2-selection__rendered {
-            line-height: 38px !important;
-        }
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 38px !important;
+    }
 
-        .select2-container--default .select2-selection--single .select2-selection__arrow {
-            top: 4px !important;
-        }
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        top: 4px !important;
+    }
 
-        .popup-form .form-control {
-            margin: 0;
-            padding: 6px 10px;
-            color: #444;
-            border-color: #c1c1c1;
-            font-size: 16px;
-        }
+    .popup-form .form-control {
+        margin: 0;
+        padding: 6px 10px;
+        color: #444;
+        border-color: #c1c1c1;
+        font-size: 16px;
+    }
 
-        .btn_search_holiday {
-            margin-top: 20px !important;
-        }
+    .btn_search_holiday {
+        margin-top: 20px !important;
+    }
 
-        select, input {
-            border: 1px solid #c1c1c1 !important;
-        }
-
-    </style>
-    <link rel="stylesheet"
-          href="{{ asset('vendor/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+    select,
+    input {
+        border: 1px solid #c1c1c1 !important;
+    }
+</style>
+<link rel="stylesheet"
+    href="{{ asset('vendor/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
 @endsection
 @section('script')
-    <script src="{{ asset('plugin/select2/select2.full.js') }}"></script>
-    <script src="{{ asset('plugin/icheck/icheck.js') }}"></script>
-    <script src="{{ asset('vendor/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script
-        src="{{ asset('vendor/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
-    <script>
-
-        $(document).ready(function () {
-            console.log('www')
+<script src="{{ asset('plugin/select2/select2.full.js') }}"></script>
+<script src="{{ asset('plugin/icheck/icheck.js') }}"></script>
+<script src="{{ asset('vendor/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('vendor/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+<script>
+    $(document).ready(function () {
             $('.search_result_tb').dataTable();
             $('#select_location').select2({
-                // theme: "classic",
             });
 
 
@@ -168,9 +164,5 @@
                 })
             })
         })
-    </script>
+</script>
 @endsection
-
-
-
-

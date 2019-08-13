@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use function PHPSTORM_META\type;
 use Auth;
+
 class HolidayController extends Controller
 {
     public function search(Request $request)
@@ -18,16 +19,16 @@ class HolidayController extends Controller
         $s_location = $request->location;
         $s_name = $request->name;
 
-        $s_wifi = (int)($request->wifi === 'on');
-        $s_hotel = (int)($request->hotel === 'on');
-        $s_car_rental = (int)($request->car_rental === 'on');
+        $s_wifi = (int) ($request->wifi === 'on');
+        $s_hotel = (int) ($request->hotel === 'on');
+        $s_car_rental = (int) ($request->car_rental === 'on');
 
         if ($s_location && $s_name) {
-            $holidays = Holidays::where('location_id', $s_location)->where('name', 'like', '%'.$s_name.'%')->get();
+            $holidays = Holidays::where('location_id', $s_location)->where('name', 'like', '%' . $s_name . '%')->get();
         } elseif ($s_location) {
             $holidays = Holidays::where('location_id', $s_location)->get();
         } elseif ($s_name) {
-            $holidays = Holidays::where('name', 'like','%'.$s_name.'%')->get();
+            $holidays = Holidays::where('name', 'like', '%' . $s_name . '%')->get();
         } else {
             $holidays = Holidays::all();
         }
@@ -114,5 +115,30 @@ class HolidayController extends Controller
         $book->end_date = Carbon::parse($end_date)->format('Y-m-d');
         $book->save();
         return 'success';
+    }
+
+    public function getLocation(Request $request)
+    {
+        $search = $request->q;
+
+        $page = $request->page;
+        $resultCount = 25;
+
+        $offset = ($page - 1) * $resultCount;
+
+        $items = Locations::where('name', 'like', '%' . $search . '%')->skip($offset)->take($resultCount)->get();
+        $count = Locations::count();
+
+        $endCount = $offset + $resultCount;
+        $morePages = $count > $endCount;
+
+        $results = array(
+            "results" => $items,
+            "pagination" => array(
+                "more" => $morePages
+            )
+        );
+
+        return response()->json($results);
     }
 }

@@ -22,6 +22,7 @@ Route::group([
 ], function () {
     //CRUD::resource('holidays', 'Admin\HolidayCrudController');
     Route::get('holidays/search', 'HolidayController@search');
+    Route::post('holidays/search/getLocation', 'HolidayController@getLocation');
     Route::get('holidays/book/{id}', 'HolidayController@show');
     Route::post('holidays/book', 'HolidayController@postBook');
     Route::get('booking', 'HolidayController@getMybooking');

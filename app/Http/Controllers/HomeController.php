@@ -26,6 +26,6 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $locations = Locations::all();
-        return view('frontend.home', compact('locations'));
+        return view('home', compact('locations'));
     }
 }
